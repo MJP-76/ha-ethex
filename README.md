@@ -1,10 +1,13 @@
 # Home Assistant - Ethex Investment Platform Integration
 
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+<a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Home%20Assistant-41BDF5?style=flat-square&logo=homeassistant&logoColor=white" alt="Home Assistant"></a>
+<a href="https://github.com/hacs/integration" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/HACS-Custom-41BDF5.svg" alt="HACS"></a>
 [![hassfest](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml)
-[![HACS Validation](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml)
-[![CI](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml)
+<a href="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/validate.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/validate.yml/badge.svg" alt="HACS Validation"></a>
+<a href="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
 [![Built with GitHub Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-8A2BE2.svg)](https://github.com/features/copilot)
+
+
 
 Custom component for Home Assistant that logs into [Ethex](https://www.ethex.org.uk/) using your
 username/email and password, and exposes your investment portfolio data as sensors.
