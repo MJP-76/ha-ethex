@@ -10,7 +10,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
-from homeassistant.helpers.aiohttp_client import async_create_clientsession
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import EthexAuthError, EthexClient, EthexConnectionError
 from .const import CONF_PASSWORD, CONF_USERNAME, DOMAIN
@@ -26,13 +26,15 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
 
 
 async def _validate_login(hass: HomeAssistant, username: str, password: str) -> None:
-    """Attempt a login; raises EthexAuthError/EthexConnectionError on failure."""
-    session = async_create_clientsession(hass)
-    try:
-        client = EthexClient(session, username, password)
-        await client.async_login()
-    finally:
-        await session.close()
+    """Attempt a login; raises EthexAuthError/EthexConnectionError on failure.
+
+    Uses Home Assistant's shared client session. It must NOT be closed here —
+    it's owned and reused by HA/other integrations for the lifetime of the
+    process.
+    """
+    session = async_get_clientsession(hass)
+    client = EthexClient(session, username, password)
+    await client.async_login()
 
 
 class EthexConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):

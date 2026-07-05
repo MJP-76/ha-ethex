@@ -4,9 +4,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable
 
-from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+    SensorEntity,
+    SensorEntityDescription,
+    SensorStateClass,
+)
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CURRENCY_POUND
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -27,49 +31,63 @@ SENSOR_DESCRIPTIONS: tuple[EthexSensorDescription, ...] = (
     EthexSensorDescription(
         key="portfolio_total",
         name="Portfolio total",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:cash-multiple",
         value_fn=lambda data: data.summary.portfolio_total,
     ),
     EthexSensorDescription(
         key="main_account_value",
         name="Main account value",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:bank",
         value_fn=lambda data: data.summary.main_account_value,
     ),
     EthexSensorDescription(
         key="ifisa_account_value",
         name="IFISA account value",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:bank",
         value_fn=lambda data: data.summary.ifisa_account_value,
     ),
     EthexSensorDescription(
         key="main_invested",
         name="Main account invested",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:chart-line",
         value_fn=lambda data: data.main.invested,
     ),
     EthexSensorDescription(
         key="main_cash_balance",
         name="Main account cash balance",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:cash",
         value_fn=lambda data: data.main.cash_balance,
     ),
     EthexSensorDescription(
         key="ifisa_invested",
         name="IFISA invested",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:chart-line",
         value_fn=lambda data: data.ifisa.invested,
     ),
     EthexSensorDescription(
         key="ifisa_cash_balance",
         name="IFISA cash balance",
-        native_unit_of_measurement=CURRENCY_POUND,
+        native_unit_of_measurement="GBP",
+        device_class=SensorDeviceClass.MONETARY,
+        state_class=SensorStateClass.TOTAL,
         icon="mdi:cash",
         value_fn=lambda data: data.ifisa.cash_balance,
     ),
