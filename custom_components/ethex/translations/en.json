@@ -8,6 +8,13 @@
           "username": "Email / Username",
           "password": "Password"
         }
+      },
+      "dashboard": {
+        "title": "Create a dashboard?",
+        "description": "Home Assistant can automatically create a \"Ethex Investment Platform\" dashboard populated with your portfolio sensors. You can change this later, or create one manually yourself instead.",
+        "data": {
+          "create_dashboard": "Automatically create the Ethex dashboard"
+        }
       }
     },
     "error": {
@@ -17,6 +24,16 @@
     },
     "abort": {
       "already_configured": "This Ethex account is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ethex options",
+        "data": {
+          "create_dashboard": "Automatically create the Ethex dashboard"
+        }
+      }
     }
   }
 }

@@ -38,6 +38,22 @@ should be resilient to this, but the populated-row structure is inferred and
 unverified. If your sensors don't pick up holdings correctly, please open an
 issue with an example of the (anonymized) table markup.
 
+## Dashboard
+
+During setup, the config flow asks whether Home Assistant should
+automatically create an **"Ethex Investment Platform"** Lovelace dashboard,
+pre-populated with all of the sensors above (an overview card, plus a
+markdown card listing current holdings). This is enabled by default, but can
+be turned off at that step if you'd rather build your own dashboard by hand.
+The preference can be changed later from the integration's **Configure**
+options.
+
+Note: dashboard auto-creation relies on Home Assistant's internal Lovelace
+storage layout rather than a public integration API (Home Assistant doesn't
+expose one), so it's best-effort — if it ever fails on a given HA version,
+integration setup still completes normally and you can create the dashboard
+yourself via Settings > Dashboards.
+
 ## Development
 
 ```bash

@@ -30,3 +30,8 @@ HOLDING_TABS = {
     "past-investments": "repaid",
     "cancelled-or-refunded-investments": "cancelled_or_refunded",
 }
+
+# Whether to auto-create a Lovelace dashboard for this integration. Offered
+# as a config flow step (and later toggleable via the options flow).
+CONF_CREATE_DASHBOARD = "create_dashboard"
+DEFAULT_CREATE_DASHBOARD = True

@@ -8,12 +8,18 @@ import aiohttp
 import voluptuous as vol
 
 from homeassistant import config_entries
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import EthexAuthError, EthexClient, EthexConnectionError
-from .const import CONF_PASSWORD, CONF_USERNAME, DOMAIN
+from .const import (
+    CONF_CREATE_DASHBOARD,
+    CONF_PASSWORD,
+    CONF_USERNAME,
+    DEFAULT_CREATE_DASHBOARD,
+    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -42,8 +48,11 @@ class EthexConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    def __init__(self) -> None:
+        self._credentials: dict[str, Any] = {}
+
     async def async_step_user(self, user_input: dict[str, Any] | None = None) -> FlowResult:
-        """Handle the initial step."""
+        """Handle the initial step: collect and validate credentials."""
         errors: dict[str, str] = {}
 
         if user_input is not None:
@@ -65,8 +74,46 @@ class EthexConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 _LOGGER.exception("Unexpected exception during Ethex login validation")
                 errors["base"] = "unknown"
             else:
-                return self.async_create_entry(title=username, data=user_input)
+                self._credentials = user_input
+                return await self.async_step_dashboard()
 
         return self.async_show_form(
             step_id="user", data_schema=STEP_USER_DATA_SCHEMA, errors=errors
         )
+
+    async def async_step_dashboard(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+        """Offer to auto-create a Lovelace dashboard for the portfolio sensors."""
+        if user_input is not None:
+            data = {**self._credentials, CONF_CREATE_DASHBOARD: user_input[CONF_CREATE_DASHBOARD]}
+            return self.async_create_entry(title=self._credentials[CONF_USERNAME], data=data)
+
+        schema = vol.Schema(
+            {vol.Required(CONF_CREATE_DASHBOARD, default=DEFAULT_CREATE_DASHBOARD): bool}
+        )
+        return self.async_show_form(step_id="dashboard", data_schema=schema)
+
+    @staticmethod
+    @callback
+    def async_get_options_flow(config_entry: config_entries.ConfigEntry) -> EthexOptionsFlow:
+        """Get the options flow for this handler."""
+        return EthexOptionsFlow(config_entry)
+
+
+class EthexOptionsFlow(config_entries.OptionsFlow):
+    """Options flow allowing the dashboard preference to be changed later."""
+
+    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
+        self._config_entry = config_entry
+
+    async def async_step_init(self, user_input: dict[str, Any] | None = None) -> FlowResult:
+        """Manage the options."""
+        if user_input is not None:
+            return self.async_create_entry(title="", data=user_input)
+
+        current = self._config_entry.options.get(
+            CONF_CREATE_DASHBOARD,
+            self._config_entry.data.get(CONF_CREATE_DASHBOARD, DEFAULT_CREATE_DASHBOARD),
+        )
+        schema = vol.Schema({vol.Required(CONF_CREATE_DASHBOARD, default=current): bool})
+        return self.async_show_form(step_id="init", data_schema=schema)
+
