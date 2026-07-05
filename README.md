@@ -6,6 +6,13 @@ username/email and password, and exposes your investment portfolio data as senso
 This integration works by scraping the authenticated `/investor/portfolios` page since Ethex
 does not offer a public API.
 
+## Origin
+
+This project came about from the need to track earnings from a Kirk Hill wind farm investment
+in Home Assistant. It's designed to complement
+[mjp-76/kirkhillwindfarm](https://github.com/mjp-76/kirkhillwindfarm), which tracks the wind
+farm's generation/output data.
+
 ## Status
 Under active development.
 
