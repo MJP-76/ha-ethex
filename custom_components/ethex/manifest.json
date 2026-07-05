@@ -1,6 +1,7 @@
 {
   "domain": "ethex",
   "name": "Ethex",
+  "after_dependencies": ["lovelace", "frontend"],
   "codeowners": ["@MJP-76"],
   "config_flow": true,
   "dependencies": [],
