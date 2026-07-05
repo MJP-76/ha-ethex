@@ -1,13 +1,11 @@
 # Home Assistant - Ethex Investment Platform Integration
 
-<a href="https://www.home-assistant.io/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Home%20Assistant-41BDF5?style=flat-square&logo=homeassistant&logoColor=white" alt="Home Assistant"></a>
-<a href="https://github.com/hacs/integration" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/HACS-Custom-41BDF5.svg" alt="HACS"></a>
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-41BDF5?style=flat-square&logo=homeassistant&logoColor=white)](https://www.home-assistant.io/)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 [![hassfest](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml)
-<a href="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/validate.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/validate.yml/badge.svg" alt="HACS Validation"></a>
-<a href="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/MJP-76/KirkHillWindFarm/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+[![HACS Validation](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml)
+[![CI](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml)
 [![Built with GitHub Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-8A2BE2.svg)](https://github.com/features/copilot)
-
-
 
 Custom component for Home Assistant that logs into [Ethex](https://www.ethex.org.uk/) using your
 username/email and password, and exposes your investment portfolio data as sensors.
@@ -23,7 +21,25 @@ in Home Assistant. It's designed to complement
 farm's generation/output data.
 
 ## Status
-Under active development.
+Stable release available (see [Releases](https://github.com/MJP-76/ha-ethex/releases)).
+
+## Installation
+
+### HACS (recommended)
+
+1. In HACS, add this repository as a custom repository (category: Integration):
+   `https://github.com/MJP-76/ha-ethex`
+2. Search for "Ethex Investment Platform" in HACS and install it.
+3. Restart Home Assistant.
+4. Go to **Settings > Devices & Services > Add Integration**, search for
+   "Ethex Investment Platform", and enter your Ethex credentials.
+
+### Manual
+
+1. Copy `custom_components/ethex` into your Home Assistant `config/custom_components/` directory.
+2. Restart Home Assistant.
+3. Go to **Settings > Devices & Services > Add Integration**, search for
+   "Ethex Investment Platform", and enter your Ethex credentials.
 
 ## What it does
 
