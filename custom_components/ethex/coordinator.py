@@ -32,7 +32,7 @@ class EthexCoordinator(DataUpdateCoordinator[EthexData]):
         super().__init__(
             hass,
             _LOGGER,
-            name="Ethex portfolio",
+            name="Ethex Investment Platform portfolio",
             update_interval=DEFAULT_SCAN_INTERVAL,
         )
         self._entry = entry

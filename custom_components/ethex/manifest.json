@@ -1,6 +1,6 @@
 {
   "domain": "ethex",
-  "name": "Ethex",
+  "name": "Ethex Investment Platform",
   "after_dependencies": ["lovelace", "frontend"],
   "codeowners": ["@MJP-76"],
   "config_flow": true,
