@@ -8,3 +8,32 @@ does not offer a public API.
 
 ## Status
 Under active development.
+
+## What it does
+
+The integration logs into your Ethex account and scrapes `/investor/portfolios`
+to expose the following sensors:
+
+- **Portfolio total** — grand total across all accounts
+- **Main account value**, **IFISA account value** — top-level balances
+- **Main account invested**, **Main account cash balance**
+- **IFISA invested**, **IFISA cash balance**
+- **Current investments** — count of active holdings, with the full list of
+  current/repaid/cancelled holdings as an attribute
+
+## Notes on holdings parsing
+
+The account used to build this integration had £0.00 balances and no
+holdings, so the exact markup for a *populated* investments table could not
+be captured. The holdings parser (`parser.py`) is written generically
+(reading each table cell's `data-title` attribute as a key/value pair) so it
+should be resilient to this, but the populated-row structure is inferred and
+unverified. If your sensors don't pick up holdings correctly, please open an
+issue with an example of the (anonymized) table markup.
+
+## Development
+
+```bash
+pip install -r requirements_test.txt
+pytest -v
+```

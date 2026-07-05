@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Ethex",
+        "description": "Enter your Ethex investor account credentials.",
+        "data": {
+          "username": "Email / Username",
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid username or password",
+      "cannot_connect": "Failed to connect to Ethex",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This Ethex account is already configured"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head><title>Portfolios - Ethex</title></head>
+<body>
+<div id="js-investor-summary-partial">
+  <div class="row row--flex si-portfolio-profile-row">
+    <div class="col">
+      <div class="flex flex-column">
+        <div class="si-invest__heading">Matthew Porter</div>
+        <div class="si-invest__date m-t-spacer-xs">Last login: 05/07/2026 17:13</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="si-invest__hint">Main account</div>
+      <div class="si-portfolio__heading">£1,250.50</div>
+    </div>
+    <div class="col">
+      <div class="si-invest__hint">IFISA account</div>
+      <div class="si-portfolio__heading">£500.00</div>
+    </div>
+    <div class="col">
+      <div class="si-invest__hint js-portfolio-account-text">Portfolio total</div>
+      <div class="si-portfolio__heading si-portfolio__heading--bold">£1,750.50</div>
+    </div>
+  </div>
+</div>
+<div id="js-main-content-partial">
+  <div class="si-invest__heading-group">
+    <div class="si-invest__heading">Main account</div>
+  </div>
+  <div class="si-portfolio-account-wrapper">
+    <div class="row row--flex si-portfolio-profile-row si-portfolio-account-row">
+      <div class="col">
+        <div class="si-invest__hint">Total</div>
+        <div class="si-portfolio__heading"><strong>£1,250.50</strong></div>
+      </div>
+      <div class="col">
+        <div class="si-invest__hint">Invested</div>
+        <div class="si-portfolio__heading">£1,000.00</div>
+      </div>
+      <div class="col">
+        <div class="si-portfolio__col--highlighted">
+          <div class="row row--flex">
+            <div class="col">
+              <div class="si-portfolio__col-cash">
+                <div class="si-invest__hint">Cash balance</div>
+                <div class="si-portfolio__heading">£250.50</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="si-portfolio__col-actions">
+                <a href="/investor/deposit">Deposit</a>
+                <a href="/investor/withdraw">Withdraw</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+    NOTE: this is a SYNTHETIC/GUESSED populated-row structure. We only have
+    real markup for the empty-holdings state (see portfolio_empty.html and
+    the comments in parser.py). This fixture assumes a populated row keeps
+    the same td[data-title="..."] pattern used by the empty placeholder row,
+    just with real values instead of "-". It has not been verified against
+    a real account with holdings.
+  -->
+  <div class="tab-content si-portfolio-investments-tabs">
+    <div class="tab-pane" id="investments" role="tabpanel">
+      <table class="table si-portfolio-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Original Investment</th>
+            <th>Current Investment</th>
+            <th>Order status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="si-portfolio-table-tr">
+            <td><img src="/logos/windfarm.png" alt=""></td>
+            <td data-title="Name">Green Windfarm Bond</td>
+            <td data-title="Original Investment">£500.00</td>
+            <td data-title="Current Investment">£500.00</td>
+            <td data-title="Order status">Active</td>
+            <td><a href="/investor/investment/1">View</a></td>
+          </tr>
+          <tr class="si-portfolio-table-tr">
+            <td><img src="/logos/solar.png" alt=""></td>
+            <td data-title="Name">Solar Community Bond</td>
+            <td data-title="Original Investment">£500.00</td>
+            <td data-title="Current Investment">£500.00</td>
+            <td data-title="Order status">Active</td>
+            <td><a href="/investor/investment/2">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="past-investments" role="tabpanel">
+      <table class="table si-portfolio-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Original Investment</th>
+            <th>Current Investment</th>
+            <th>Order status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="si-portfolio-table-tr">
+            <td></td>
+            <td data-title="Name"> - </td>
+            <td data-title="Amount"> - </td>
+            <td data-title="Order status"> - </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="cancelled-or-refunded-investments" role="tabpanel">
+      <table class="table si-portfolio-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Original Investment</th>
+            <th>Current Investment</th>
+            <th>Order status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="si-portfolio-table-tr">
+            <td></td>
+            <td data-title="Name"> - </td>
+            <td data-title="Amount"> - </td>
+            <td data-title="Order status"> - </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
