@@ -1,5 +1,11 @@
 # Home Assistant - Ethex Integration
 
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![hassfest](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml)
+[![HACS Validation](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml)
+[![CI](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml)
+[![Built with GitHub Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-8A2BE2.svg)](https://github.com/features/copilot)
+
 Custom component for Home Assistant that logs into [Ethex](https://www.ethex.org.uk/) using your
 username/email and password, and exposes your investment portfolio data as sensors.
 
