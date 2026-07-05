@@ -1,13 +1,13 @@
 # Home Assistant - Ethex Investment Platform Integration
 
-[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-41BDF5?style=flat-square&logo=homeassistant&logoColor=white)](https://www.home-assistant.io/)
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![hassfest](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml)
-[![HACS Validation](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml)
-[![CI](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml/badge.svg)](https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml)
-[![Built with GitHub Copilot](https://img.shields.io/badge/Built%20with-GitHub%20Copilot-8A2BE2.svg)](https://github.com/features/copilot)
+[![Home Assistant][badge-ha]][link-ha]
+[![HACS Custom][badge-hacs]][link-hacs]
+[![hassfest][badge-hassfest]][link-hassfest]
+[![HACS Validation][badge-hacs-validation]][link-hacs-validation]
+[![CI][badge-ci]][link-ci]
+[![Built with GitHub Copilot][badge-copilot]][link-copilot]
 
-Custom component for Home Assistant that logs into [Ethex](https://www.ethex.org.uk/) using your
+Custom component for Home Assistant that logs into [Ethex][link-ethex] using your
 username/email and password, and exposes your investment portfolio data as sensors.
 
 This integration works by scraping the authenticated `/investor/portfolios` page since Ethex
@@ -17,11 +17,11 @@ does not offer a public API.
 
 This project came about from the need to track earnings from a Kirk Hill wind farm investment
 in Home Assistant. It's designed to complement
-[mjp-76/kirkhillwindfarm](https://github.com/mjp-76/kirkhillwindfarm), which tracks the wind
+[mjp-76/kirkhillwindfarm][link-kirkhillwindfarm], which tracks the wind
 farm's generation/output data.
 
 ## Status
-Stable release available (see [Releases](https://github.com/MJP-76/ha-ethex/releases)).
+Stable release available (see [Releases][link-releases]).
 
 ## Installation
 
@@ -85,3 +85,19 @@ yourself via Settings > Dashboards.
 pip install -r requirements_test.txt
 pytest -v
 ```
+
+[badge-ha]: https://img.shields.io/badge/Home%20Assistant-41BDF5?style=flat-square&logo=homeassistant&logoColor=white
+[badge-hacs]: https://img.shields.io/badge/HACS-Custom-41BDF5.svg
+[badge-hassfest]: https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml/badge.svg
+[badge-hacs-validation]: https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml/badge.svg
+[badge-ci]: https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml/badge.svg
+[badge-copilot]: https://img.shields.io/badge/Built%20with-GitHub%20Copilot-8A2BE2.svg
+[link-ha]: https://www.home-assistant.io/
+[link-hacs]: https://github.com/hacs/integration
+[link-hassfest]: https://github.com/MJP-76/ha-ethex/actions/workflows/hassfest.yml
+[link-hacs-validation]: https://github.com/MJP-76/ha-ethex/actions/workflows/hacs.yml
+[link-ci]: https://github.com/MJP-76/ha-ethex/actions/workflows/ci.yml
+[link-copilot]: https://github.com/features/copilot
+[link-ethex]: https://www.ethex.org.uk/
+[link-kirkhillwindfarm]: https://github.com/mjp-76/kirkhillwindfarm
+[link-releases]: https://github.com/MJP-76/ha-ethex/releases
